@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trade The ORB Academy – From Beginner to Funded Trader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Learn the financial markets from scratch, master the ORB trading system, and get fully prepared to pass prop firm challenges with Trade The ORB Academy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050712;
+      --bg-alt: #090d1c;
+      --bg-soft: #0d1220;
+      --card: #101528;
+      --border: #1b2236;
+      --accent: #2EC7FF;
+      --accent-soft: rgba(46,199,255,0.14);
+      --accent-strong: #00A6FF;
+      --text-main: #ffffff;
+      --text-muted: #A0A8C0;
+      --text-soft: #7a8299;
+      --danger: #ff4b81;
+      --success: #4bffb5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #141c3a 0, #050712 40%, #02030a 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #2EC7FF 0, #0078D4 40%, #050712 100%);
+      box-shadow: 0 0 24px rgba(46,199,255,0.65);
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .header-cta a {
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--text-muted);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .header-cta a.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #02030a;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .header-cta a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .header-cta {
+      display: flex;
+      gap: 8px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-left h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(5, 7, 18, 0.85);
+      border: 1px solid rgba(46,199,255,0.4);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-bullets {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 24px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .hero-bullets span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-bullets span::before {
+      content: "●";
+      font-size: 9px;
+      color: var(--accent);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(140deg, var(--accent), var(--accent-strong));
+      color: #02030a;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+    }
+
+    .btn-secondary {
+      background: rgba(11,16,32,0.9);
+      border-color: rgba(255,255,255,0.1);
+      color: var(--text-muted);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(14,20,39,1);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at top left, rgba(46,199,255,0.18) 0, #050712 55%, #02030a 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(46,199,255,0.25);
+      padding: 20px 20px 18px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .hero-card-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hero-card-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .hero-pill {
+      background: rgba(2,3,12,0.9);
+      border-radius: 999px;
+      padding: 8px 11px;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-pill-label {
+      color: var(--text-soft);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-pill-value {
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .hero-ribbon {
+      position: absolute;
+      bottom: 14px;
+      right: 16px;
+      font-size: 10px;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+
+    /* Sections */
+    section {
+      background: rgba(5, 7, 18, 0.74);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 22px 20px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.7);
+    }
+
+    section + section {
+      margin-top: 18px;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .feature-card {
+      background: var(--bg-soft);
+      border-radius: 14px;
+      padding: 14px 13px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .feature-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .feature-text {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(15, 20, 40, 0.9);
+      color: var(--text-muted);
+    }
+
+    /* Curriculum */
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .curriculum-card {
+      background: var(--bg-soft);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 13px;
+    }
+
+    .curriculum-level {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .curriculum-title {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .curriculum-text {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .curriculum-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-left: 16px;
+    }
+
+    .curriculum-list li {
+      margin-bottom: 3px;
+    }
+
+    /* Pricing */
+    .pricing {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .pricing-main {
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(46,199,255,0.12), rgba(0,0,0,0.92));
+      border: 1px solid rgba(46,199,255,0.35);
+      padding: 17px 15px;
+    }
+
+    .pricing-note {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .pricing-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pricing-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .price-main {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .price-old {
+      font-size: 14px;
+      text-decoration: line-through;
+      color: var(--text-soft);
+    }
+
+    .price-tag {
+      font-size: 11px;
+      color: var(--success);
+      background: rgba(75,255,181,0.08);
+      border-radius: 999px;
+      padding: 3px 8px;
+      border: 1px solid rgba(75,255,181,0.32);
+    }
+
+    .pricing-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-left: 16px;
+      margin-bottom: 10px;
+    }
+
+    .pricing-list li {
+      margin-bottom: 3px;
+    }
+
+    .pricing-side {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .pricing-side strong {
+      color: var(--text-muted);
+    }
+
+    .pricing-side ul {
+      padding-left: 16px;
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+
+    .pricing-side li {
+      margin-bottom: 3px;
+    }
+
+    /* FAQ */
+    .faq-item {
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .faq-q {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .faq-a {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    /* Footer / Disclaimer */
+    footer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--text-soft);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 10px;
+    }
+
+    footer p {
+      margin-bottom: 6px;
+    }
+
+    .disclaimer {
+      font-size: 10px;
+      color: #8188a0;
+      line-height: 1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-cta {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .pricing {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .page {
+        padding-inline: 14px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-bullets {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-right {
+        padding: 16px 14px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div>
+          <div class="logo-text-main">Trade The ORB</div>
+          <div class="logo-text-sub">Precision • Momentum • Mindset</div>
+        </div>
+      </div>
+      <div class="header-cta">
+        <a href="#curriculum">Course Curriculum</a>
+        <a href="#pricing" class="primary">Join The Academy</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-left">
+          <div class="hero-highlight">
+            <span>Foundations → ORB → Prop Firm Challenges</span>
+          </div>
+          <h1>From Complete Beginner<br>to Funded ORB Trader.</h1>
+          <p class="hero-subtitle">
+            Learn the financial markets from scratch, master the Opening Range Breakout system I use in my own trading,
+            and follow a clear blueprint to get prop-firm ready — without hype, signals or “get-rich-quick” nonsense.
+          </p>
+
+          <div class="hero-bullets">
+            <span>Step-by-step video library + downloadable PDFs</span>
+            <span>Clear ORB rules, risk model & trade examples</span>
+            <span>Prop firm challenge preparation & tools</span>
+            <span>Lifelong skills, not recycled indicator tricks</span>
+          </div>
+
+          <div class="hero-cta">
+            <!-- TODO: Replace href with your payment / checkout link -->
+            <a href="#pricing" class="btn btn-primary">Join The Academy Now</a>
+            <a href="#about" class="btn btn-secondary">Watch Intro / Learn More</a>
+          </div>
+          <div class="hero-note">
+            Early-bird launch: lifetime access at a discounted founder price. All future updates included.
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-tag">Academy Overview</div>
+          <div class="hero-card-title">3 Levels • 1 Clear Path</div>
+          <div class="hero-card-sub">
+            Foundations, ORB mastery and prop firm challenge preparation — built on 20+ years of real trading and market analysis.
+          </div>
+          <div class="hero-grid">
+            <div class="hero-pill">
+              <div class="hero-pill-label">Level 1</div>
+              <div class="hero-pill-value">Beginner Foundations</div>
+              <div class="hero-pill-label" style="margin-top:3px;">You’ll learn</div>
+              <div style="font-size:11px;color:var(--text-soft);">
+                Markets • Brokers • Candles • Risk • News
+              </div>
+            </div>
+            <div class="hero-pill">
+              <div class="hero-pill-label">Level 2</div>
+              <div class="hero-pill-value">ORB Mastery</div>
+              <div class="hero-pill-label" style="margin-top:3px;">You’ll learn</div>
+              <div style="font-size:11px;color:var(--text-soft);">
+                Bias • ORB Rules • Entries • Trade Management
+              </div>
+            </div>
+            <div class="hero-pill">
+              <div class="hero-pill-label">Level 3</div>
+              <div class="hero-pill-value">Prop Firm Prep</div>
+              <div class="hero-pill-label" style="margin-top:3px;">You’ll learn</div>
+              <div style="font-size:11px;color:var(--text-soft);">
+                Challenge rules • Risk plan • Passing blueprint
+              </div>
+            </div>
+            <div class="hero-pill">
+              <div class="hero-pill-label">Plus</div>
+              <div class="hero-pill-value">Tools & Templates</div>
+              <div class="hero-pill-label" style="margin-top:3px;">Includes</div>
+              <div style="font-size:11px;color:var(--text-soft);">
+                Equity curve sim • Journals • Checklists
+              </div>
+            </div>
+          </div>
+          <div class="hero-ribbon">
+            Lifetime access • Self-paced • Updates included
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT YOU GET -->
+      <section id="about">
+        <div class="section-header">
+          <div class="section-kicker">What You Get Inside</div>
+          <h2 class="section-title">A complete trading pathway, not just another “strategy course”.</h2>
+          <p class="section-subtitle">
+            We combine market foundations, a rules-based ORB system, and a realistic approach to prop firm challenges — so you know exactly what to learn, in what order, and how to apply it.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-title">Beginner Foundations</div>
+            <div class="feature-text">
+              Markets, brokers, leverage, candlesticks, sessions, margin, news, basic macro — everything a new trader should know
+              before ever placing a trade, explained clearly and without jargon.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title">ORB Trading System</div>
+            <div class="feature-text">
+              The Opening Range Breakout framework I personally use: multi-timeframe bias, ORB rules, trend continuation,
+              invalidation, risk parameters, and how to build a repeatable playbook that fits your personality.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title">Prop Firm Challenge Prep</div>
+            <div class="feature-text">
+              Understand prop firm rules, build a challenge-specific risk plan, use my equity curve ideas, and avoid the emotional
+              and strategic traps that blow accounts before they even get going.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title">Video Library + PDFs</div>
+            <div class="feature-text">
+              Structured video modules with downloadable PDFs, checklists, worksheets and templates. Learn visually, then review
+              with concise written notes you can come back to any time.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title">Real-World Perspective</div>
+            <div class="feature-text">
+              You’re not learning from theory. I’ve spent 20+ years trading and analysing markets professionally, including
+              dealing-desk and senior analyst roles. You get that experience distilled into something you can actually use.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title">Lifetime Updates</div>
+            <div class="feature-text">
+              As market conditions evolve and I refine the material, you get updated lessons, new case studies and extra resources
+              added into the same course at no extra cost.
+            </div>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <div class="pill">Self-paced learning</div>
+          <div class="pill">Stream on any device</div>
+          <div class="pill">Repeatable ORB framework</div>
+          <div class="pill">Prop-firm friendly risk rules</div>
+          <div class="pill">No signals. No copy-trading. No hype.</div>
+        </div>
+      </section>
+
+      <!-- CURRICULUM -->
+      <section id="curriculum">
+        <div class="section-header">
+          <div class="section-kicker">Curriculum Overview</div>
+          <h2 class="section-title">Three levels. One clear outcome: structured, funded-ready trading.</h2>
+          <p class="section-subtitle">
+            Here is the outline of what you’ll move through inside Trade The ORB Academy. As a founding member, you’ll see new
+            lessons and case studies appear as they’re added.
+          </p>
+        </div>
+
+        <div class="curriculum-grid">
+          <div class="curriculum-card">
+            <div class="curriculum-level">Level 1</div>
+            <div class="curriculum-title">Beginner Foundations</div>
+            <p class="curriculum-text">
+              Go from “I’ve heard about trading” to “I understand how the markets, brokers and risk actually work.”
+            </p>
+            <ul class="curriculum-list">
+              <li>What markets are & how price moves</li>
+              <li>Brokers, margin, leverage, spreads, swaps</li>
+              <li>Candlesticks, sessions, trends & ranges</li>
+              <li>Basics of macro & red-folder news</li>
+              <li>Why most traders actually lose money</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-card">
+            <div class="curriculum-level">Level 2</div>
+            <div class="curriculum-title">ORB Trading Mastery</div>
+            <p class="curriculum-text">
+              Learn my step-by-step Opening Range Breakout approach and how to execute it with confidence.
+            </p>
+            <ul class="curriculum-list">
+              <li>Multi-timeframe bias & narrative building</li>
+              <li>Defining & trading the Opening Range</li>
+              <li>Trend & continuation ORB setups</li>
+              <li>Risk model: stops, position size, scaling</li>
+              <li>Case studies on FX, indices, gold & crypto</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-card">
+            <div class="curriculum-level">Level 3</div>
+            <div class="curriculum-title">Prop Firm Challenge Blueprint</div>
+            <p class="curriculum-text">
+              Align your trading with prop-firm rules and understand how to give yourself a realistic shot at passing.
+            </p>
+            <ul class="curriculum-list">
+              <li>How prop firms work & common traps</li>
+              <li>Challenge risk plan & daily loss rules</li>
+              <li>Building a 20-day challenge roadmap</li>
+              <li>Handling drawdowns & emotional swings</li>
+              <li>Using tools & templates to stay on track</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-card">
+            <div class="curriculum-level">Ongoing</div>
+            <div class="curriculum-title">Case Studies & Updates</div>
+            <p class="curriculum-text">
+              New real-market examples, updated lessons and extra resources as the academy evolves.
+            </p>
+            <ul class="curriculum-list">
+              <li>Recorded trade breakdowns & recaps</li>
+              <li>New instrument examples & environments</li>
+              <li>Extra psychology & journaling modules</li>
+              <li>PDF checklists, journals & planners</li>
+              <li>Community Q&A (where available)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing">
+        <div class="section-header">
+          <div class="section-kicker">Founding Member Launch</div>
+          <h2 class="section-title">Join as a founding member & lock in lifetime access.</h2>
+          <p class="section-subtitle">
+            For this launch phase, you can get full access to all current material, plus all future updates, at a discounted
+            founder price. As more content and features are added, the public price will increase.
+          </p>
+        </div>
+
+        <div class="pricing">
+          <div class="pricing-main">
+            <div class="pricing-note">Founding Member Offer</div>
+            <div class="pricing-title">Lifetime Access to Trade The ORB Academy</div>
+            <div class="pricing-sub">Pay once. Access the material for life. All updates included.</div>
+
+            <div class="price-row">
+              <!-- TODO: Update pricing currency / amounts -->
+              <div class="price-main">£99</div>
+              <div class="price-old">£249</div>
+              <div class="price-tag">Launch discount • Limited time</div>
+            </div>
+
+            <ul class="pricing-list">
+              <li>All three levels: Foundations, ORB Mastery, Prop Firm Blueprint</li>
+              <li>Full video library + downloadable PDFs & templates</li>
+              <li>Access to future updates, case studies & extra modules</li>
+              <li>Founding member pricing locked in forever</li>
+            </ul>
+
+            <!-- TODO: Replace href with your checkout link -->
+            <a href="#"
+               class="btn btn-primary"
+               style="margin-top:6px; width:100%; justify-content:center;">
+              Secure My Founding Member Spot
+            </a>
+
+            <div style="font-size:11px;color:var(--text-soft);margin-top:6px;text-align:center;">
+              Limited founding member spaces to keep feedback & support manageable during the initial build-out.
+            </div>
+          </div>
+
+          <div class="pricing-side">
+            <strong>What happens after you join?</strong>
+            <ul>
+              <li>You receive an email with your login details.</li>
+              <li>You get immediate access to all currently released modules and PDFs.</li>
+              <li>New lessons & case studies appear in your dashboard as they are added.</li>
+            </ul>
+
+            <strong>Who this is for:</strong>
+            <ul>
+              <li>Complete beginners who want a structured path into trading.</li>
+              <li>Intermediate traders who want a clear ORB framework, not random strategies.</li>
+              <li>Prop firm hopefuls who want to build a realistic, rules-based approach.</li>
+            </ul>
+
+            <strong>Who this is not for:</strong>
+            <ul>
+              <li>People looking for “signals” or copy-trading.</li>
+              <li>Anyone expecting guaranteed results or overnight success.</li>
+              <li>Those unwilling to journal, review and take responsibility.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section>
+        <div class="section-header">
+          <div class="section-kicker">Questions</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is this suitable if I’m a complete beginner?</div>
+          <div class="faq-a">
+            Yes. Level 1 of the academy is designed exactly for you — we start with how the markets work, what brokers do,
+            what leverage actually means in practice, and how risk, news and price action fit together. You don’t need prior
+            trading experience, just the willingness to learn and put in the work.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What if I already have some trading experience?</div>
+          <div class="faq-a">
+            Many traders come in with some background (watching YouTube, trying a few strategies, maybe trading live already).
+            You can move quickly through the foundational modules and then dive into the ORB system, case studies and prop firm
+            material. The value is in having everything structured in one place with a clear framework to follow.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Does this guarantee that I’ll pass a prop firm challenge?</div>
+          <div class="faq-a">
+            No. No ethical educator can guarantee specific trading results. Markets carry risk and your outcomes depend on
+            factors I can’t control: your discipline, psychology, risk choices and consistency. What I can do is give you a
+            structured framework, education, tools and a realistic blueprint to improve your odds and reduce common mistakes.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How long do I have access to the material?</div>
+          <div class="faq-a">
+            As a founding member, you get lifetime access. That means you pay once, and you can come back to the videos, PDFs
+            and future updates at any time, at your own pace.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Will there be live sessions or a community?</div>
+          <div class="faq-a">
+            The core academy is a self-paced course. Depending on demand and the number of founding members, I may add live
+            Q&A calls or a private community (e.g., Discord) as a separate or bundled offering. If/when that happens, founding
+            members will get first access and preferential pricing.
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER / DISCLAIMER -->
+      <footer>
+        <p>© <span id="year"></span> Trade The ORB. All rights reserved.</p>
+        <p class="disclaimer">
+          Disclaimer: Trading financial markets involves substantial risk and is not suitable for every investor. The material
+          in this course is for educational purposes only and should not be construed as financial advice, investment
+          recommendations or a guarantee of future results. You are solely responsible for your own trading decisions and any
+          losses incurred. Past performance is not indicative of future performance. Only trade with money you can afford to lose.
+        </p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
